@@ -10,7 +10,7 @@ npm run build
 
 ## Github Pages
 
-Site online on:
+Site online:
 ```shell
-https://alessandro0218.github.io/Portfolio/Portfolio/
+https://alessandro0218.github.io/Portfolio
 ```
