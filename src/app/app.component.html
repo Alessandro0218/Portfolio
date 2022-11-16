@@ -1,1 +1,19 @@
-<h1>Home</h1>
+<mat-toolbar color="primary">
+    <div class="center" [ngStyle]="{'color': tooltipColor}">
+        <button mat-button>Home</button>
+        <button mat-button>About me</button>
+        <button mat-button>Skills</button>
+    </div>
+    <div class="spacer"></div>
+</mat-toolbar>
+<div fullpage id="fullpage" [options]="config"  (ref)="getRef($event)" #fullpageRef>
+    <div class="section">
+        <h1>Home</h1>
+    </div>
+    <div class="section">
+        <h1>About me</h1>
+    </div>
+    <div class="section">
+        <h1>Skills</h1>
+    </div>
+</div>

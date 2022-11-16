@@ -1,0 +1,30 @@
+.center{
+    text-align: center;
+    width: 100%;
+}
+
+.center > button{
+    margin: auto 5%;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+mat-toolbar{
+    position: fixed;
+    z-index: 999;
+    content: '';
+	backdrop-filter: blur(8px);
+    background-color: transparent !important;
+}
+
+.content{
+    overflow: hidden;
+}
+
+.content .header{
+    background-color: #2d2d2d;
+    width: 100%;
+    height: calc(100vh - 64px);
+}
