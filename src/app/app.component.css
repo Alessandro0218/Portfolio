@@ -5,6 +5,12 @@
 
 .center > button{
     margin: auto 5%;
+    color: #fafafa;
+}
+
+.center > button:after{
+    border: 2px solid #fafafa;
+    width: 100px;
 }
 
 .spacer{
@@ -15,7 +21,7 @@ mat-toolbar{
     position: fixed;
     z-index: 999;
     content: '';
-	backdrop-filter: blur(8px);
+	/* backdrop-filter: blur(8px); */
     background-color: transparent !important;
 }
 
@@ -24,7 +30,68 @@ mat-toolbar{
 }
 
 .content .header{
-    background-color: #2d2d2d;
+    background-color: #fafafa;
     width: 100%;
     height: calc(100vh - 64px);
+}
+
+.welcome{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 15em;
+    width: 1300px;
+    height: 400px;
+}
+
+.comma{
+    font-family: "Darker Grotesque";
+    font-size:2em;
+    color: #AFFC41;
+}
+
+.hi{
+    color: #fafafa;
+    font-family: "Darker Grotesque"
+}
+
+.myname{
+    position: absolute;
+    color:  #fafafa;
+    font-family: "Darker Grotesque";
+    top: 250px;
+    left: 0px;
+    font-size: .5em;
+}
+
+.name{
+    position: absolute;
+    color:  #C2EFEB;
+    font-family: "Darker Grotesque";
+    top: 250px;
+    left: 450px;
+    font-size: .5em;
+}
+
+.pipe{
+    position: absolute;
+    font-size: .7em;
+    top: 10px;
+    animation: pulse 1.1s linear infinite;
+    animation-play-state: running;
+    color: #fafafa;
+    opacity: 1;
+}
+
+@keyframes pulse{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.fp-viewing-section1 #fp-nav ul li a span{
+    background: red;
+}
+.fp-viewing-section2 #fp-nav ul li a span{
+    background: blue;
 }

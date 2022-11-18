@@ -8,7 +8,10 @@
 </mat-toolbar>
 <div fullpage id="fullpage" [options]="config"  (ref)="getRef($event)" #fullpageRef>
     <div class="section">
-        <h1>Home</h1>
+        <div class="welcome">
+            <span class="hi">Hi</span><span class="comma">,</span>
+            <span class="myname">Mi chiamo</span><span class="name" id="name">{{ name }}<span class="pipe">|</span></span>
+        </div>
     </div>
     <div class="section">
         <h1>About me</h1>
