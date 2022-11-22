@@ -6,11 +6,16 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-*{
+/* *{
     font-family: 'Inter', sans-serif;
-}
+} */
 
 #fp-nav ul li a span, 
 .fp-slidesNav ul li a span{
   background: #C2EFEB;
 }
+
+a{
+  text-decoration: none;
+}
+

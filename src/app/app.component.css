@@ -1,16 +1,39 @@
+*{
+    --welcome-top: 20%;
+    --header-indent: 10%;
+}
+
 .center{
     text-align: center;
     width: 100%;
 }
 
-.center > button{
+.center > a{
     margin: auto 5%;
     color: #fafafa;
+    width: auto !important;
+    text-decoration: none;
+    position: relative;
+    text-align: center;
 }
 
-.center > button:after{
-    border: 2px solid #fafafa;
-    width: 100px;
+.center > a:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #fafafa;
+    width: 10px;
+    opacity: 0;
+    transition: all .5s ease-out;
+    border-radius: 60px;
+    
+}
+
+.center a:hover:after{
+    width: 100% !important;
+    opacity: 1;
 }
 
 .spacer{
@@ -37,10 +60,10 @@ mat-toolbar{
 
 .welcome{
     position: absolute;
-    top: 20%;
-    left: 10%;
+    top: var(--welcome-top);
+    left: var(--header-indent);
     font-size: 15em;
-    width: 1300px;
+    width: 950px;
     height: 400px;
 }
 
@@ -69,14 +92,14 @@ mat-toolbar{
     color:  #C2EFEB;
     font-family: "Darker Grotesque";
     top: 250px;
-    left: 450px;
+    left: 250px;
     font-size: .5em;
 }
 
 .pipe{
     position: absolute;
-    font-size: .7em;
-    top: 10px;
+    font-size: 1em;
+    top: -5px;
     animation: pulse 1.1s linear infinite;
     animation-play-state: running;
     color: #fafafa;
@@ -94,4 +117,146 @@ mat-toolbar{
 }
 .fp-viewing-section2 #fp-nav ul li a span{
     background: blue;
+}
+
+.buttons{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.buttons button{
+    position: relative;
+    width: 150px;
+    height: 100%;
+    background-color: #fafafa;
+    border: 0;
+    border-radius: .25rem;
+    background-color: transparent;
+    border: 2px solid #fafafa;
+    box-shadow: rgba(0, 0, 0, 0.062) 1.95px 1.95px 2.6px;
+    transition: all .250s linear;
+    cursor: pointer;
+}
+
+.buttons button:hover{
+    background-color: #fafafa;
+}
+
+.buttons button:hover a{
+    color: black;
+}
+
+button a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: "Darker Grotesque";
+    font-size: 1.6em;
+    width: 100%;
+    color: #fafafa;
+}
+
+.black{
+    background-color: black !important;
+    border: 2px solid black !important;
+}
+
+.black:hover{
+    background-color: rgb(7, 7, 7) !important;
+}
+
+.black:hover a{
+    color: #fafafa !important;
+}
+
+.black > a{
+    color: #fafafa !important;
+}
+
+.container{
+    position: relative;
+    left: 50%;
+    top: 100px;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100%;
+}
+
+.title{
+    text-align: center;
+    font-family: Inter;
+    font-size: 2em;
+    font-weight: 600;
+    color: #fafafa;
+}
+
+
+.about-me-text{
+    /* border: 1px solid #fafafa; */
+    color: #fafafa;
+    word-wrap: break-word;
+    text-align: justify;
+    width: 600px;
+    margin: 0 auto;
+    font-size: 1.4em;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 100;
+}
+
+mat-expansion-panel{
+    position: fixed;
+    top: 56px;
+    width: 100%;
+    height: auto;
+    background-color: #fafafa22;
+    z-index: 999;
+    box-shadow: none !important;
+}
+
+
+
+
+@media screen and (max-width: 1150px) {
+    .welcome{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .welcome{
+        transform: translateX(-50%) scale(0.8);
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .welcome{
+        transform: translateX(-50%) scale(0.6);
+        left: 50%;
+    }
+
+    .about-me-text{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .welcome{
+        transform: translateX(-50%) scale(0.5);
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 492px) {
+    .welcome{
+        transform: translateX(-50%) scale(0.35);
+        left: 50%;
+    }
 }

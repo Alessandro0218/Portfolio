@@ -1,22 +1,54 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="!isPhone()">
     <div class="center" [ngStyle]="{'color': tooltipColor}">
-        <button mat-button>Home</button>
-        <button mat-button>About me</button>
-        <button mat-button>Skills</button>
+        <a href="#home"><span class="text">Home</span></a>
+        <a href="#aboutme"><span class="text">About me</span></a>
+        <a href="#skills"><span class="text">Skills</span></a>
+        <a href="#contacts"><span class="text">Contacts</span></a>
     </div>
     <div class="spacer"></div>
 </mat-toolbar>
+<mat-toolbar color="primary" *ngIf="isPhone()">
+    <span>Alessandro Bertolli</span>
+    <div class="spacer"></div>
+    <button mat-icon-button class="example-icon" (click)="panelOpenState ? panelOpenState = false : panelOpenState = true">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-expansion-panel class="expansionNav" [expanded]="panelOpenState" *ngIf="isPhone()">
+    ciao
+</mat-expansion-panel>
+
+
 <div fullpage id="fullpage" [options]="config"  (ref)="getRef($event)" #fullpageRef>
     <div class="section">
         <div class="welcome">
-            <span class="hi">Hi</span><span class="comma">,</span>
-            <span class="myname">Mi chiamo</span><span class="name" id="name">{{ name }}<span class="pipe">|</span></span>
+            <span class="hi">Ciao</span><span class="comma">,</span>
+            <span class="myname">Sono</span><span class="name" id="name">{{ name }}<span class="pipe">|</span></span>
+            <div class="buttons">
+                <button mat-button><a href="#aboutme">About me</a></button>
+                <button class="black" mat-button><a>Scarica CV</a></button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="section">
+        <div class="container">
+            <h1 class="title">About me</h1>
+            <div class="about-me-text">
+                <span>
+                    <p>Mi chiamo Alessandro Bertolli, nato a Rovereto in provincia di Trento, sono un giovane professionista con ottime capacità analitiche, di progettazione e team working.</p>
+                    <p>Diplomato presso ITT Marconi Rovereto nel ramo informatico. Da sempre appassionato d' informatica, dati e tecnologia in generale.</p>
+                    <p>Sono pronto ad utilizzare le competenze e la passione per sostenere la missione aziendale attraverso positività, volontà e motivazione. </p>
+                    <p>Ora ricopro la carica di full stack developer, in particolare nella progettazione e creazione di un software che va ad aumentare l'efficienza e l'efficacia degli
+                    interventi preventivi e/o straordinari da parte dei tecnici in commessa.</p>
+                </span>
+            </div>
         </div>
     </div>
     <div class="section">
-        <h1>About me</h1>
+        <h1>Skills</h1>
     </div>
     <div class="section">
-        <h1>Skills</h1>
+        <h1>Contacts</h1>
     </div>
 </div>

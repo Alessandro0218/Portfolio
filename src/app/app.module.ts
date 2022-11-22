@@ -8,8 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
+
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { AngularFullpageModule } from '@fullpage/angular-fullpage';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    AngularFullpageModule
+    AngularFullpageModule,
+    RouterModule,
+    MatExpansionModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

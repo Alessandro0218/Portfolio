@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,22 +18,33 @@ export class AppComponent {
   maxColorIndex = this.colors.length;
 
   /* @ViewChild('name') mionome!: ElementRef<HTMLSpanElement>; */
-  placeholder: String = 'Alessandro Bertolli';
+  placeholder: String = 'Alessandro';
   name: String = this.placeholder;
   max: number = this.name.length;
   current: number = this.max;
   status: string = 'left';
 
-  sleep: (ms: number) => Promise<unknown>;
+  timerName: any;
+  resumeIntervall: (ms: number) => Promise<unknown>;
 
-  constructor(){
-    this.sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+  windowWidth!: number;
+
+  panelOpenState: Boolean = false;
+
+  constructor(private router: Router){
+    this.resumeIntervall = (ms: number) => { 
+      clearInterval(this.timerName)
+      return new Promise(() => setTimeout(() => {
+        this.updateName();
+      }, ms))
+    };
+
     this.config = {
       licenseKey: 'SOFTWARE OPENSOURCE', // to request
-      anchors: ['home', 'aboutme', 'skills'],
+      anchors: ['home', 'aboutme', 'skills', 'contacts'],
       menu: '#menu',
       navigation: true,
-      sectionsColor: ['#192BC2', '#2d2d2d', '#2d2d2d'],
+      sectionsColor: ['#192BC2', '#2d2d2d', '#2d2d2d', '#2d2d2d'],
 
       // events callback
       onLeave:(origin: any, destination: any, direction: any) => {
@@ -49,6 +61,15 @@ export class AppComponent {
     };
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: { target: { innerWidth: number } }) {
+    this.windowWidth = event.target.innerWidth;
+  }
+
+  isPhone(){
+    return this.windowWidth > 500 ? false : true;
+  }
+
   ngOnInit(){
     this.updateName();
   }
@@ -58,31 +79,28 @@ export class AppComponent {
   }
 
   updateName(){
-    setInterval(async () => {
+    this.timerName = setInterval(async () => {
       let stopped = false;
       this.name = this.placeholder.substring(0, this.current);
-      if(this.current == this.max){
+      if(this.current >= this.max && this.status == 'right'){
         this.status = 'left';
-        stopped=true;
-        await this.sleep(2000);
-        stopped=false;
-      }else if(this.current == 0){
+        await this.resumeIntervall(2000);
+      }else if(this.current <= 0 && this.status == 'left'){
         this.status = 'right';
         if(this.colorIndex > this.colors.length-1){
           this.colorIndex = 0;
         }
         document.getElementById('name')!.style.color = this.colors[this.colorIndex];
         this.colorIndex++;
-        
-        /* this.mionome.nativeElement.style.color = this.colors[Math.random() * this.colors.length-1] */
       }
 
-      if(this.status == 'left' && !stopped){
+      if(this.status == 'left'){
         this.current = this.current - 1;
-      }else if(this.status == 'right' && !stopped){
+      }else if(this.status == 'right'){
         this.current = this.current + 1;
       }
     }, 200)
   }
+
   
 }
