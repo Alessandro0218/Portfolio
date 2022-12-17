@@ -46,7 +46,23 @@
         </div>
     </div>
     <div class="section">
-        <h1>Skills</h1>
+        <div class="container">
+            <h1 class="title">Skills</h1>
+            <div class="row">
+                <div class="col-sm" [ngStyle]="{'background-color': lang.color}" *ngFor="let lang of linguaggi">
+                    <div class="body">
+                        <div class="img">
+                            <img [src]="lang.url" width="150" height="150">
+                        </div>
+                        <div class="text">
+                            <span>
+                                {{ lang.name }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="section">
         <h1>Contacts</h1>

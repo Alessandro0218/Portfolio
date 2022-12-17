@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Linguaggio } from './classi/linguaggio';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,10 @@ export class AppComponent {
   windowWidth!: number;
 
   panelOpenState: Boolean = false;
+
+  linguaggi: Linguaggio[] = [
+    {url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png", name: "ANGULAR", color: "#ff222255"},
+  ]
 
   constructor(private router: Router){
     this.resumeIntervall = (ms: number) => { 
